@@ -12,7 +12,7 @@
     <artifactId>zhixuan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>zhixuan</name>
-    <description>Demo project for Spring Boot</description>
+    <description>zhixuan system backend</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -135,41 +135,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!--dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency-->
-
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>4.4.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.7</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.12.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-
-
     </dependencies>
 
     <!-- maven构建，实现打jar包 -->
