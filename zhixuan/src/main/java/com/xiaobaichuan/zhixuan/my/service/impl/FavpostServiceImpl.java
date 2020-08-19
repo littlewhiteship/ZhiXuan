@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,5 +51,18 @@ public class FavpostServiceImpl extends ServiceImpl<FavpostMapper, Favpost> impl
         favpostQueryWrapper.eq("openid",openid).eq("postid",postid);
         remove(favpostQueryWrapper);
         return getfavpost(openid);
+    }
+
+    @Override
+    public List<Favpost> addfavpost(String openid, Integer postid) {
+        Favpost newfavpost = new Favpost();
+        newfavpost.setOpenid(openid);
+        newfavpost.setPostid(postid);
+        newfavpost.setPosttitle(iPostService.getById(postid).getTitle());
+        newfavpost.setTime(LocalDateTime.now());
+        save(newfavpost);
+        QueryWrapper<Favpost> favpostQueryWrapper = new QueryWrapper<>();
+        favpostQueryWrapper.eq("openid",openid).orderByDesc("favpostid");
+        return list(favpostQueryWrapper);
     }
 }

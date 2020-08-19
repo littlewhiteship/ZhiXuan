@@ -268,6 +268,7 @@ public class MyController {
         return jsonObject;
     }
 
+    //后面暂时没写
     @RequestMapping(value = "/getfavjob",method = RequestMethod.POST)
     public JSONObject getfavjob(String openid){
         JSONObject jsonObject = new JSONObject();
@@ -279,7 +280,7 @@ public class MyController {
             }
 
         }catch (Exception ex){
-            jsonObject.put("errcode","10014");
+            jsonObject.put("errcode","10004");
             jsonObject.put("errmsg","请求失败，发生未知错误");
         }
         return jsonObject;

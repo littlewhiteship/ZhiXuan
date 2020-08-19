@@ -20,4 +20,6 @@ public interface IFavpostService extends IService<Favpost> {
 
     List<Post> cancelfavpost(String openid, Integer postid);
 
+    List<Favpost> addfavpost(String openid, Integer postid);
+
 }
