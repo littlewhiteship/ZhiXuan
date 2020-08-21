@@ -63,3 +63,29 @@ create table t_favpost
     time datetime,
     posttitle varchar(64)
 );
+
+create table t_positioninfo
+(
+    listid integer not null auto_increment primary key,
+	time varchar(16),
+	academic varchar(16),
+	position varchar(16),
+	officehour varchar(16),
+	company varchar(16),
+	salary integer,
+	introduction text,
+	major varchar(32),
+	location varchar(32),
+	starttime date,
+	duty text,
+	command text,
+	email text
+);
+
+create table t_advice
+(
+    adviceid integer not null auto_increment primary key,
+	nickname varchar(32),
+	content text,
+	time datetime
+);

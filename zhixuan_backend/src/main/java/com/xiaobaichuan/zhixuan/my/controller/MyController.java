@@ -2,7 +2,10 @@ package com.xiaobaichuan.zhixuan.my.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.xiaobaichuan.zhixuan.backstage.entity.Advice;
+import com.xiaobaichuan.zhixuan.backstage.service.IAdviceService;
 import com.xiaobaichuan.zhixuan.community.entity.Post;
+import com.xiaobaichuan.zhixuan.homepage.entity.Positioninfo;
 import com.xiaobaichuan.zhixuan.my.entity.Cv;
 import com.xiaobaichuan.zhixuan.my.entity.Favpost;
 import com.xiaobaichuan.zhixuan.my.entity.Userinfo;
@@ -42,6 +45,9 @@ public class MyController {
 
     @Autowired
     private IFavjobService iFavjobService;
+
+    @Autowired
+    private IAdviceService iAdviceService;
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public JSONObject register(String account,String nickname,String image){
@@ -268,7 +274,6 @@ public class MyController {
         return jsonObject;
     }
 
-    //后面暂时没写
     @RequestMapping(value = "/getfavjob",method = RequestMethod.POST)
     public JSONObject getfavjob(String openid){
         JSONObject jsonObject = new JSONObject();
@@ -278,7 +283,57 @@ public class MyController {
                 jsonObject.put("errmsg","数据传输错误，账号为空");
                 return jsonObject;
             }
+            List<Positioninfo> positioninfos = iFavjobService.getfavjob(openid);
+            jsonObject.put("errcode","0");
+            jsonObject.put("data",positioninfos);
+        }catch (Exception ex){
+            jsonObject.put("errcode","10004");
+            jsonObject.put("errmsg","请求失败，发生未知错误");
+        }
+        return jsonObject;
+    }
 
+    @RequestMapping(value = "/cancelfavjob",method = RequestMethod.POST)
+    public JSONObject cancelfavjob(String openid, Integer positionid){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            if(openid == null || openid.equals("")){
+                jsonObject.put("errcode","10001");
+                jsonObject.put("errmsg","数据传输错误，账号为空");
+                return jsonObject;
+            }
+            if(positionid == null ){
+                jsonObject.put("errcode","10026");
+                jsonObject.put("errmsg","数据传输错误，删除职位id为空");
+                return jsonObject;
+            }
+            List<Positioninfo>result = iFavjobService.cancelfavjob(openid,positionid);
+            jsonObject.put("errcode","0");
+            jsonObject.put("data",result);
+        }catch(Exception ex){
+            jsonObject.put("errcode","10004");
+            jsonObject.put("errmsg","请求失败，发生未知错误");
+        }
+        return jsonObject;
+    }
+
+    @RequestMapping(value = "/addadvice",method = RequestMethod.POST)
+    public JSONObject addadvice(String nickname,String content){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            if(nickname == null || nickname.equals("")){
+                jsonObject.put("errcode","10002");
+                jsonObject.put("errmsg","数据传输错误，昵称为空");
+                return jsonObject;
+            }
+            if(content == null || content.equals("")){
+                jsonObject.put("errcode","10025");
+                jsonObject.put("errmsg","请求失败，意见反馈内容不能为空");
+                return jsonObject;
+            }
+            Advice advice = iAdviceService.addadvice(nickname,content);
+            jsonObject.put("errcode","0");
+            jsonObject.put("data",advice);
         }catch (Exception ex){
             jsonObject.put("errcode","10004");
             jsonObject.put("errmsg","请求失败，发生未知错误");
