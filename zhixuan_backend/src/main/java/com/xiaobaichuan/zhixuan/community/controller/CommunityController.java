@@ -201,4 +201,28 @@ public class CommunityController {
         return jsonObject;
     }
 
+    @RequestMapping(value = "/ifaddfav",method = RequestMethod.POST)
+    public JSONObject ifaddfav(String openid, Integer postid){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            if(openid == null || openid.equals("")){
+                jsonObject.put("errcode","10001");
+                jsonObject.put("errmsg","数据传输错误，账号为空");
+                return jsonObject;
+            }
+            if (postid == null){
+                jsonObject.put("errcode","10020");
+                jsonObject.put("errmsg","数据传输错误，帖子id为空");
+                return jsonObject;
+            }
+            boolean result = iFavpostService.ifaddfav(openid,postid);
+            jsonObject.put("errcode","0");
+            jsonObject.put("result",result);
+        }catch (Exception ex){
+            jsonObject.put("errcode","10004");
+            jsonObject.put("errmsg","请求失败，发生未知错误");
+        }
+        return jsonObject;
+    }
+
 }

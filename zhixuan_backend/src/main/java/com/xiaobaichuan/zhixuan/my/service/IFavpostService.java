@@ -22,4 +22,6 @@ public interface IFavpostService extends IService<Favpost> {
 
     List<Favpost> addfavpost(String openid, Integer postid);
 
+    boolean ifaddfav(String openid, Integer postid);
+
 }
