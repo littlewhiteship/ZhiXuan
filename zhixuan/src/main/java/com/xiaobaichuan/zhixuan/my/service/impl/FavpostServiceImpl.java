@@ -65,4 +65,17 @@ public class FavpostServiceImpl extends ServiceImpl<FavpostMapper, Favpost> impl
         favpostQueryWrapper.eq("openid",openid).orderByDesc("favpostid");
         return list(favpostQueryWrapper);
     }
+
+    @Override
+    public boolean ifaddfav(String openid, Integer postid) {
+        QueryWrapper<Favpost>favpostQueryWrapper = new QueryWrapper<>();
+        favpostQueryWrapper.eq("openid",openid).eq("postid",postid);
+        int num = list(favpostQueryWrapper).size();
+        if (num == 0)
+        {
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
