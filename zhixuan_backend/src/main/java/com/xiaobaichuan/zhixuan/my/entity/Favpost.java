@@ -9,14 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author songyifan
- * @since 2020-08-16
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
@@ -36,5 +29,47 @@ public class Favpost implements Serializable {
 
     private String posttitle;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
+    public Integer getFavpostid() {
+        return favpostid;
+    }
+
+    public void setFavpostid(Integer favpostid) {
+        this.favpostid = favpostid;
+    }
+
+    public Integer getPostid() {
+        return postid;
+    }
+
+    public void setPostid(Integer postid) {
+        this.postid = postid;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public String getPosttitle() {
+        return posttitle;
+    }
+
+    public void setPosttitle(String posttitle) {
+        this.posttitle = posttitle;
+    }
 }

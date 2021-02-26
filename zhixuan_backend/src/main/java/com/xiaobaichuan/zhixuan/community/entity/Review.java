@@ -8,14 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author songyifan
- * @since 2020-08-16
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
@@ -39,5 +32,63 @@ public class Review implements Serializable {
 
     private String prinickname;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
+    public Integer getReviewid() {
+        return reviewid;
+    }
+
+    public void setReviewid(Integer reviewid) {
+        this.reviewid = reviewid;
+    }
+
+    public Integer getPostid() {
+        return postid;
+    }
+
+    public void setPostid(Integer postid) {
+        this.postid = postid;
+    }
+
+    public String getReopenid() {
+        return reopenid;
+    }
+
+    public void setReopenid(String reopenid) {
+        this.reopenid = reopenid;
+    }
+
+    public String getRenickname() {
+        return renickname;
+    }
+
+    public void setRenickname(String renickname) {
+        this.renickname = renickname;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getRetype() {
+        return retype;
+    }
+
+    public void setRetype(String retype) {
+        this.retype = retype;
+    }
+
+    public String getPrinickname() {
+        return prinickname;
+    }
+
+    public void setPrinickname(String prinickname) {
+        this.prinickname = prinickname;
+    }
 }

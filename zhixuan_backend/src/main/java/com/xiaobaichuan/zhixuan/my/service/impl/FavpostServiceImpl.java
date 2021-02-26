@@ -14,14 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author songyifan
- * @since 2020-08-16
- */
+
 @Service
 public class FavpostServiceImpl extends ServiceImpl<FavpostMapper, Favpost> implements IFavpostService {
 

@@ -8,10 +8,11 @@ import com.xiaobaichuan.zhixuan.community.service.IPostService;
 import com.xiaobaichuan.zhixuan.community.service.IReviewService;
 import com.xiaobaichuan.zhixuan.my.entity.Favpost;
 import com.xiaobaichuan.zhixuan.my.service.IFavpostService;
-import javafx.geometry.Pos;
+//import javafx.geometry.Pos;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,14 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author songyifan
- * @since 2020-08-16
- */
+
+@CrossOrigin
 @RestController
 @RequestMapping("/community")
 public class CommunityController {

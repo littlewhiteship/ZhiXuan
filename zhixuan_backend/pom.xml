@@ -8,6 +8,7 @@
         <version>2.3.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.xiaobaichuan</groupId>
     <artifactId>zhixuan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -20,6 +21,8 @@
 
     <!-- 配置国内maven仓库源 -->
     <repositories>
+
+
         <repository>
             <id>ali-maven</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public</url>
@@ -32,6 +35,7 @@
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
+        <!---->
 
         <repository>
             <id>central</id>
@@ -135,6 +139,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+
     </dependencies>
 
     <!-- maven构建，实现打jar包 -->

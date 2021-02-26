@@ -7,7 +7,6 @@ import com.xiaobaichuan.zhixuan.backstage.service.IAdviceService;
 import com.xiaobaichuan.zhixuan.community.entity.Post;
 import com.xiaobaichuan.zhixuan.homepage.entity.Positioninfo;
 import com.xiaobaichuan.zhixuan.my.entity.Cv;
-import com.xiaobaichuan.zhixuan.my.entity.Favpost;
 import com.xiaobaichuan.zhixuan.my.entity.Userinfo;
 import com.xiaobaichuan.zhixuan.my.service.ICvService;
 import com.xiaobaichuan.zhixuan.my.service.IFavjobService;
@@ -15,6 +14,7 @@ import com.xiaobaichuan.zhixuan.my.service.IFavpostService;
 import com.xiaobaichuan.zhixuan.my.service.IUserinfoService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,17 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author songyifan
- * @since 2020-08-16
- */
+
 @RestController
+@CrossOrigin
 @RequestMapping("/my")
 public class MyController {
+
 
     @Autowired
     private IUserinfoService iUserinfoService;
@@ -274,6 +269,7 @@ public class MyController {
         return jsonObject;
     }
 
+
     @RequestMapping(value = "/getfavjob",method = RequestMethod.POST)
     public JSONObject getfavjob(String openid){
         JSONObject jsonObject = new JSONObject();
@@ -292,6 +288,10 @@ public class MyController {
         }
         return jsonObject;
     }
+
+
+
+
 
     @RequestMapping(value = "/cancelfavjob",method = RequestMethod.POST)
     public JSONObject cancelfavjob(String openid, Integer positionid){
@@ -316,6 +316,8 @@ public class MyController {
         }
         return jsonObject;
     }
+
+
 
     @RequestMapping(value = "/addadvice",method = RequestMethod.POST)
     public JSONObject addadvice(String nickname,String content){
